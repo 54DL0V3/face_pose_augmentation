@@ -90,6 +90,17 @@ data_root
 │   ├── 10009865324_0.txt
 │   ├── 10012551673_5.txt
 ```
+Change augmentation headpose by charging
+```
+# Delta poses
+delta_poses = np.array([
+    [30 / 180, 0, 0],
+    [60 / 180, 0, 0],
+    [90 / 180, 0, 0],
+    [120 / 180, 0, 0],
+    [150 / 180, 0, 0],
+])
+```
 ### Using with Microsoft Dataset
 ```bash
 python3 scripts/run_microsoft.py -h
@@ -115,6 +126,17 @@ Data Folder Structure
 data_root
 ├── data
 ├── landmarks
+```
+Change augmentation headpose by charging
+```
+# Delta poses
+delta_poses = np.array([
+    [30 / 180, 0, 0],
+    [60 / 180, 0, 0],
+    [90 / 180, 0, 0],
+    [120 / 180, 0, 0],
+    [150 / 180, 0, 0],
+])
 ```
 ## References
 \[1\] Zhu, Xiangyu, Xiaoming Liu, Zhen Lei, and Stan Z. Li. "[Face alignment in full pose range: A 3d total solution.](https://ieeexplore.ieee.org/iel7/34/4359286/08122025.pdf)" _IEEE transactions on pattern analysis and machine intelligence_ 41, no. 1 (2017): 78-92.
