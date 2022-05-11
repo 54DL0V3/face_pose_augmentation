@@ -49,7 +49,8 @@ tddfa_result = TDDFAPredictor.decode(tddfa(image, landmarks, rgb=False))[0]
 #      2D landmarks. This is optional. When this argument is set to None,
 #      the function will try to infer 2D landmarks from the vertices on the
 #      3D mesh.
-#   3. This function returns a list of dictionaries, each element storing
+#   3. This function 
+#   returns a list of dictionaries, each element storing
 #      the warping result at a target pose, including the warped image, the 
 #      correspondence map, and landmarks in different styles.
 augmentation_results = augmentor(image, tddfa_result, delta_poses, landmarks)
@@ -72,6 +73,23 @@ optional arguments:
                         Number of workers
 
 ```
+
+Data folder structure
+```
+data_root
+├── images
+│   ├── 10001868414_0.jpg
+│   ├── 10009865324_0.jpg
+│   ├── 10012551673_5.jpg
+├── labels
+│   ├── 10001868414_0.png
+│   ├── 10009865324_0.png
+│   ├── 10012551673_5.png
+├── landmarks
+│   ├── 10001868414_0.txt
+│   ├── 10009865324_0.txt
+│   ├── 10012551673_5.txt
+```
 ### Using with Microsoft Dataset
 ```bash
 python3 scripts/run_microsoft.py -h
@@ -90,6 +108,13 @@ optional arguments:
   --num_workers NUM_WORKERS
                         Number of workers
   --file_ids FILE_IDS   Path to .txt file containing file ids.
+```
+
+Data Folder Structure
+```
+data_root
+├── data
+├── landmarks
 ```
 ## References
 \[1\] Zhu, Xiangyu, Xiaoming Liu, Zhen Lei, and Stan Z. Li. "[Face alignment in full pose range: A 3d total solution.](https://ieeexplore.ieee.org/iel7/34/4359286/08122025.pdf)" _IEEE transactions on pattern analysis and machine intelligence_ 41, no. 1 (2017): 78-92.
