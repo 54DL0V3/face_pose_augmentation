@@ -26,6 +26,7 @@ pip install -e .
 ```python face_pose_augmentation_test.py [-i webcam_index]```
 
 ## How to Use
+### General
 ```python
 from ibug.face_pose_augmentation import TDDFAPredictor, FacePoseAugmentor
 
@@ -53,7 +54,43 @@ tddfa_result = TDDFAPredictor.decode(tddfa(image, landmarks, rgb=False))[0]
 #      correspondence map, and landmarks in different styles.
 augmentation_results = augmentor(image, tddfa_result, delta_poses, landmarks)
 ```
+### Using with LaPa Dataset
+```bash
+python3 scripts/run_lapa.py --data_root [PATH_TO_DATA_FOLDER] --output_folder [PATH_TO_SAVE_FOLDER] --num_worker [NUMBER_OF_WORKERS]
+python3 scripts/run_lapa.py -h
+usage: LaPa augmentation [-h] [--data_root DATA_ROOT]
+                         [--output_folder OUTPUT_FOLDER]
+                         [--num_workers NUM_WORKERS]
 
+optional arguments:
+  -h, --help            show this help message and exit
+  --data_root DATA_ROOT
+                        Path to data folder
+  --output_folder OUTPUT_FOLDER
+                        Path to output folder
+  --num_workers NUM_WORKERS
+                        Number of workers
+
+```
+### Using with Microsoft Dataset
+```bash
+python3 scripts/run_microsoft.py -h
+
+usage: Microsoft augmentation [-h] [--data_root DATA_ROOT]
+                              [--output_folder OUTPUT_FOLDER]
+                              [--num_workers NUM_WORKERS]
+                              [--file_ids FILE_IDS]
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --data_root DATA_ROOT
+                        Path to data folder
+  --output_folder OUTPUT_FOLDER
+                        Path to output folder
+  --num_workers NUM_WORKERS
+                        Number of workers
+  --file_ids FILE_IDS   Path to .txt file containing file ids.
+```
 ## References
 \[1\] Zhu, Xiangyu, Xiaoming Liu, Zhen Lei, and Stan Z. Li. "[Face alignment in full pose range: A 3d total solution.](https://ieeexplore.ieee.org/iel7/34/4359286/08122025.pdf)" _IEEE transactions on pattern analysis and machine intelligence_ 41, no. 1 (2017): 78-92.
 
